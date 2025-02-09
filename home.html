@@ -3,163 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Unique Navbar with Search</title>
+    <title>Skill Trade</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="home.css">
-    <style>
-  
-    </style>
 </head>
 <body>
+    <!-- Navbar -->
+     <div class="header">
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Skill Trade</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-list"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="#">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search skills...">
                     <button class="btn btn-outline-light" type="submit">
-                        <i class="bi bi-search"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
                     </button>
                 </form>
             </div>
         </div>
     </nav>
-    <!--<div id="slider">
-        <figure>
-            <img src="Lets.svg" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
 
-        </figure>
-    </div> -->
-    <div class="slogan">
-        Lets trade skills...
+    <!-- Hero Slider -->
+    <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200" class="d-block w-100" alt="Share Your Knowledge">
+                <div class="carousel-caption">
+                    <h1>Let's Trade Skills...</h1>
+                    <button type="button" class="btn btn-outline-light">Join Now!</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200" class="d-block w-100" alt="Learn From Experts">
+                <div class="carousel-caption">
+                    <h1>Learn and Connect</h1>
+                    <p>Connect with skilled professionals</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200" class="d-block w-100" alt="Build Your Future">
+                <div class="carousel-caption">
+                    <h1>Start Trading Skills Today!</h1>
+                    <p>Sign up now and connect with experts worldwide!</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
     </div>
-    <div class="card-container">
-        <div class="card">
-            <div class="card-image">
-                <img src="game.jpeg" alt="Card Image">
-            </div>
-            <div class="card-content">
-                <h2>Game Development</h2>
-                <p>I will teach game development in exchange for machine learning.</p>
-                <button>Read More</button>
-            </div>
-        </div>
-        
 
-        <div class="card">
-            <div class="card-image">
-                <img src="web.jpeg" alt="Card Image">
+    <!-- Skill Cards -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Available Skills for Trade</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="skill-card">
+                    <div class="skill-card-image">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=400" alt="Game Development">
+                    </div>
+                    <div class="skill-card-content">
+                        <h3>Game Development</h3>
+                        <p>I will teach game development in exchange for machine learning.</p>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
             </div>
-            <div class="card-content">
-                <h2>Web Development</h2>
-                <p>I will teach web development and trade with app development.</p>
-                <button>Read More</button>
+            <div class="col-md-6 col-lg-4">
+                <div class="skill-card">
+                    <div class="skill-card-image">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=400" alt="Web Development">
+                    </div>
+                    <div class="skill-card-content">
+                        <h3>Web Development</h3>
+                        <p>I will teach web development and trade with app development.</p>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-
-        <div class="card">
-            <div class="card-image">
-                <img src="ml.jpeg" alt="Card Image">
+            <div class="col-md-6 col-lg-4">
+                <div class="skill-card">
+                    <div class="skill-card-image">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=400" alt="Machine Learning">
+                    </div>
+                    <div class="skill-card-content">
+                        <h3>Machine Learning</h3>
+                        <p>I will teach machine learning in trade will blockchain.</p>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
             </div>
-            <div class="card-content">
-                <h2>Machine Learning</h2>
-                <p>I will teach machine learning in trade will blockchain.</p>
-                <button>Read More</button>
+            <div class="col-md-6 col-lg-4">
+                <div class="skill-card">
+                    <div class="skill-card-image">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=400" alt="Cyber Security">
+                    </div>
+                    <div class="skill-card-content">
+                        <h3>Cyber Security</h3>
+                        <p>I will teach cyber security if someone wants to trade will web development.</p>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-image">
-                <img src="cyber.jpeg" alt="Card Image">
+            <div class="col-md-6 col-lg-4">
+                <div class="skill-card">
+                    <div class="skill-card-image">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=400" alt="Cloud Computing">
+                    </div>
+                    <div class="skill-card-content">
+                        <h3>Cloud Computing</h3>
+                        <p>I will teach Cloud Computing if someone trades with ml or web.</p>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
             </div>
-            <div class="card-content">
-                <h2>Cyber Security</h2>
-                <p>I will teach cyber security if someone wants to trade will web development.</p>
-                <button>Read More</button>
+            <div class="col-md-6 col-lg-4">
+                <div class="skill-card">
+                    <div class="skill-card-image">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=400" alt="Blockchain">
+                    </div>
+                    <div class="skill-card-content">
+                        <h3>Blockchain</h3>
+                        <p>I will teach Blockchain if someone trades will app dev.</p>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-image">
-                <img src="cloud.jpeg" alt="Card Image">
+            <div class="col-md-6 col-lg-4">
+                <div class="skill-card">
+                    <div class="skill-card-image">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=400" alt="Graphic Design">
+                    </div>
+                    <div class="skill-card-content">
+                        <h3>Graphic Design</h3>
+                        <p>I will teach graphic Designing if someone wants to trade with game dev.</p>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
             </div>
-            <div class="card-content">
-                <h2>Cloud Computing</h2>
-                <p>I will teach Cloud Computing if someone trades with ml or web.</p>
-                <button>Read More</button>
+            <div class="col-md-6 col-lg-4">
+                <div class="skill-card">
+                    <div class="skill-card-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=400" alt="App Development">
+                    </div>
+                    <div class="skill-card-content">
+                        <h3>App Development</h3>
+                        <p>I will teach app development if someone wants to exchange with graphic designing.</p>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-
-        <div class="card">
-            <div class="card-image">
-                <img src="blockchain.jpeg" alt="Card Image">
-            </div>
-            <div class="card-content">
-                <h2>Blockchain</h2>
-                <p>I will teach Blockchain if someone trades will app dev.</p>
-                <button>Read More</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="graphic.jpeg" alt="Card Image">
-            </div>
-            <div class="card-content">
-                <h2>Graphic Designing</h2>
-                <p>I will teach graphic Designing if someone wants to trade with game dev.</p>
-                <button>Read More</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="app.jpeg" alt="Card Image">
-            </div>
-            <div class="card-content">
-                <h2>App Development</h2>
-                <p>I will teach app development if someone wants to exchange with gaphic designing.</p>
-                <button>Read More</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="devops.jpeg" alt="Card Image">
-            </div>
-            <div class="card-content">
-                <h2>DevOps</h2>
-                <p>I will teach devOps in exchange with machine learning.</p>
-                <button>Read More</button>
+            <div class="col-md-6 col-lg-4">
+                <div class="skill-card">
+                    <div class="skill-card-image">
+                        <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=400" alt="DevOps">
+                    </div>
+                    <div class="skill-card-content">
+                        <h3>DevOps</h3>
+                        <p>I will teach devOps in exchange with machine learning.</p>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
             </div>
         </div>
     </div>
-        
+</div>
+<footer class="footer mt-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- About Section -->
+            <div class="col-lg-3 col-md-6">
+                <h3 class="footer-brand">Skill Trade</h3>
+                <p class="footer-text">Connect, learn, and grow with our global community of skilled professionals. Trade your expertise and expand your knowledge.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Find Skills</a></li>
+                    <li><a href="#">Become a Teacher</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- Support -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Contact Us</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="bi bi-envelope text-primary"></i>
+                        <span>contact@skilltrade.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-telephone text-primary"></i>
+                        <span>+92 315 1724989</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-geo-alt text-primary"></i>
+                        <span>FAST NUCES, Faisalabad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="newsletter-section">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h4 class="footer-title">Subscribe to Our Newsletter</h4>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-primary" type="button">
+                            Subscribe <i class="bi bi-send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>© 2025 Skill Trade. All rights reserved.</p>
+        </div>
     </div>
+</footer>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
