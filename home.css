@@ -1,58 +1,123 @@
+:root {
+  /* Color palette based on #B3A592 */
+  --primary-color: #B3A592;      /* Main taupe */
+  --secondary-color: #A39482;    /* Darker taupe */
+  --accent-color: #C4B8A7;       /* Lighter taupe */
+  --gradient-start: #B3A592;     /* Gradient start */
+  --gradient-end: #A39482;       /* Gradient end */
+  --dark-bg: #B3A592;           /* Background color */
+  --text-color: #4A443C;        /* Dark brown text */
+  --light-text: #FFF;           /* White text */
+}
+
 /* General Styles */
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--dark-bg);
+  color: var(--text-color);
   font-family: 'Arial', sans-serif;
 }
 
 /* Navbar Styles */
 .navbar {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(179, 165, 146, 0.95);  /* Based on #B3A592 */
+  box-shadow: 0 2px 10px rgba(163, 148, 130, 0.2);
 }
 .navbar-brand {
-  color: linear-gradient(to right, #0d6efd, #6610f2) !important;
+  background: linear-gradient(45deg, #8B7355, #C4B594);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
   font-size: 1.5rem;
   font-weight: bold;
   transition: color 0.3s ease;
- 
 }
 .navbar-brand, .nav-link {
-  color: #fff;
+  color: var(--text-color) !important;
   transition: color 0.3s ease;
 }
 
-
 .navbar-brand:hover, .nav-link:hover {
-  color: #007bff !important;
+  color: var(--accent-color) !important;
 }
 
+/* Updated Search Bar Styles */
 .form-control {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: #C4B8A7;  /* Lighter shade */
+  border: 1px solid rgba(163, 148, 130, 0.3);
+  color: #5C4033;  /* Dark brown text */
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.95rem;
 }
 
 .form-control:focus {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #007bff;
-  color: #fff;
-  box-shadow: none;
+  background: #D1C7B8;  /* Even lighter when focused */
+  border-color: #A39482;
+  box-shadow: 0 0 12px rgba(163, 148, 130, 0.2);
+  color: #5C4033;
 }
 
 .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: #8B7355;  /* Rich brown for placeholder text */
+  opacity: 0.7;
+}
+
+/* Search Button Style */
+.search-button {
+  background: linear-gradient(45deg, #A39482, #B3A592);
+  color: #FFF;
+  border: 2px solid #B3A592;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-left: 6px;
+  min-width: 60px;
+}
+
+.search-button:hover {
+  background: linear-gradient(45deg, #B3A592, #A39482);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(163, 148, 130, 0.3);
+}
+
+.search-button:focus {
+  outline: none;
+  border: 2px solid #B3A592;
+  box-shadow: none;
+}
+
+/* Remove default button focus styles */
+.search-button:focus-visible {
+  outline: none;
+  border: 2px solid #B3A592;
+}
+
+/* Updated Button Styles */
+.btn-primary {
+  background: linear-gradient(45deg, #A39482, #B3A592);
+  color: var(--light-text);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #B3A592, #A39482);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(163, 148, 130, 0.3);
 }
 
 /* Hero Slider Styles */
 #heroSlider {
   margin-top: 56px;
-  height: 90vh;
+  height: 94vh;
 }
 
 .carousel-item {
-  height: 90vh;
+  height: 92vh;
 }
 
 .carousel-item img {
@@ -94,12 +159,14 @@ body {
   height: 400px;
   border-radius: 15px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(163, 148, 130, 0.15);
+  cursor: pointer;
 }
 
 .skill-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(163, 148, 130, 0.3);
 }
 
 .skill-card-image {
@@ -108,18 +175,20 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .skill-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  filter: none;
+  opacity: 1;
+  transition: transform 0.5s ease;
 }
 
 .skill-card:hover .skill-card-image img {
-  opacity: 0.3;
+  transform: scale(1.1) rotate(-2deg);
 }
 
 .skill-card-content {
@@ -127,37 +196,76 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 2rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-  transform: translateY(0);
-  transition: transform 0.3s ease;
-}
-
-.skill-card:hover .skill-card-content {
-  transform: translateY(-10px);
+  padding: 2.5rem 2rem;  /* Increased padding top */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+  transition: all 0.4s ease;
 }
 
 .skill-card h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
 }
 
 .skill-card p {
-  margin-bottom: 1.5rem;
-  opacity: 0.9;
+  color: #fff;
+  margin-bottom: 1.2rem;  /* Reduced margin */
+  opacity: 0.8;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 25px;
-  transition: background-color 0.3s ease;
+.skill-card .btn {
+  transition: all 0.4s ease;
+  opacity: 0.8;
+  transform: translateY(10px);
+  margin-bottom: 0.5rem;  /* Add space at bottom */
+  position: relative;
+  z-index: 2;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
+.skill-card:hover .btn {
+  opacity: 1;
+  transform: translateY(-5px);  /* Move button up slightly on hover */
+}
+
+.skill-card:hover h3,
+.skill-card:hover p {
+  transform: translateY(0);
+}
+
+.skill-card:hover p {
+  opacity: 1;
+}
+
+.skill-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.skill-card:hover::after {
+  opacity: 1;
+}
+
+/* Remove any transition effects */
+.skill-card,
+.skill-card-image,
+.skill-card-image img {
+  transition: none;
 }
 
 /* Responsive Adjustments */
@@ -186,32 +294,39 @@ body {
 }
 
 .btn-outline-light {
-  border-color: #063143;
-  color: #5b7795;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
   width: 40%;
   border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: var(--secondary-color);
+  color: var(--dark-bg);
+  transform: translateY(-2px);
 }
 
 /* Add this to your existing CSS */
 
 .footer {
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9));
+  background: linear-gradient(to bottom, transparent, rgba(179, 165, 146, 0.98));
   padding: 80px 0 40px;
-  color: #fff;
+  color: var(--text-color);
 }
 
 .footer-brand {
-  font-size: 1.75rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #0d6efd, #6610f2);
+  background: linear-gradient(45deg, #8B7355, #C4B594);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  font-size: 1.75rem;
+  font-weight: bold;
   margin-bottom: 1.5rem;
 }
 
 .footer-text {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-color);
   margin-bottom: 1.5rem;
 }
 
@@ -221,13 +336,13 @@ body {
 }
 
 .social-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: #A39482;
   font-size: 1.25rem;
   transition: color 0.3s ease;
 }
 
 .social-link:hover {
-  color: #0d6efd;
+  color: #8B7E6D;
 }
 
 .footer-title {
@@ -248,13 +363,13 @@ body {
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #0d6efd;
+  color: var(--primary-color);
 }
 
 .contact-info {
@@ -267,7 +382,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-color);
 }
 
 .contact-item i {
@@ -277,7 +392,7 @@ body {
 .newsletter-section {
   margin-top: 3rem;
   padding-top: 3rem;
-  border-top: 1px solid rgba(188, 23, 23, 0.1);
+  border-top: 1px solid rgba(163, 148, 130, 0.3);
 }
 
 .newsletter-section .input-group {
@@ -286,37 +401,44 @@ body {
 }
 
 .newsletter-section .form-control {
-  background: rgba(116, 128, 184, 0.995);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  padding: 0.75rem 1rem;
-}
-
-.newsletter-section .form-control::placeholder {
-  color: rgba(145, 67, 67, 0.5);
+  background: #F2EAD9;
+  border: 1px solid rgba(139, 115, 85, 0.3);
+  border-radius: 25px;
+  padding: 10px 20px;
 }
 
 .newsletter-section .form-control:focus {
-  background: rgba(181, 130, 130, 0.15);
-  border-color: #0d6efd;
-  box-shadow: none;
+  background: #FFF6E6;
+  border-color: #8B7355;
+}
+
+.newsletter-section .form-control::placeholder {
+  color: #8B7355;
+  opacity: 0.7;
 }
 
 .newsletter-section .btn {
+  background: linear-gradient(45deg, #8B7355, #C4B594);
+  color: var(--light-text);
+  border: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
   padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: rgba(116, 128, 184, 0.767);
-  border-radius:5%;
+}
+
+.newsletter-section .btn:hover {
+  background: linear-gradient(45deg, #C4B594, #8B7355);
 }
 
 .copyright {
   text-align: center;
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.7);
+  border-top: 1px solid rgba(196, 181, 148, 0.3);
+  color: var(--text-color);
   font-size: 0.875rem;
 }
 
@@ -341,4 +463,56 @@ body {
       margin-top: 2rem;
       padding-top: 2rem;
   }
+}
+
+/* Footer heading styles */
+.footer h4, .footer h3 {
+  color: #8B7355;  /* Rich brown color */
+  font-weight: 600;
+}
+
+/* Quick Links, Support, Contact Us sections */
+.footer-links a, 
+.footer-text, 
+.contact-item,
+.footer a,
+.footer p {
+  color: #5C4033;  /* Dark brown for better readability */
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #8B7355;  /* Rich brown on hover */
+  text-decoration: none;
+}
+
+/* Newsletter section */
+.newsletter-section h3 {
+  color: #8B7355;  /* Rich brown */
+}
+
+/* Subscribe text */
+.subscribe-text {
+  color: #5C4033;  /* Dark brown */
+}
+
+/* Contact information */
+.contact-info {
+  color: #5C4033;  /* Dark brown */
+}
+
+/* Footer brand/logo */
+.footer-brand {
+  color: #8B7355 !important;  /* Rich brown */
+  font-weight: bold;
+}
+
+/* Social links */
+.social-links a {
+  color: #8B7355;  /* Rich brown */
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #C4B594;  /* Lighter beige on hover */
 }
