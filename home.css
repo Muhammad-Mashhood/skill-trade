@@ -516,3 +516,322 @@ body {
 .social-links a:hover {
   color: #C4B594;  /* Lighter beige on hover */
 }
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.auth-buttons .btn {
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 8px 18px;
+  transition: all 0.3s ease;
+}
+
+.auth-buttons .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(163, 148, 130, 0.3);
+}
+
+.auth-buttons .btn-light {
+  background-color: #F2EAD9;
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+}
+
+.auth-buttons .btn-primary {
+  background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+  color: var(--light-text);
+  border: none;
+}
+
+.auth-buttons .btn-outline-light {
+  border: 1px solid var(--light-text);
+  color: var(--light-text);
+}
+
+.auth-buttons .btn-outline-light:hover {
+  background-color: transparent;
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+/* Profile Button */
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.profile-btn span {
+  color: var(--light-text);
+  font-weight: 600;
+}
+
+
+.profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Course Carousel Styles - Updated to fix shadow and height issues */
+
+/* Course Carousel Container */
+#courseCarousel {
+  padding: 20px 0; /* Reduced padding */
+  background: none; /* No background whatsoever */
+  box-shadow: none; /* No shadow */
+  border-radius: 0; /* No border radius */
+  margin: 30px 0;
+  position: relative;
+  z-index: 1; /* Ensure proper stacking order */
+}
+
+/* Course Cards Row */
+#courseCarousel .d-flex {
+  display: flex;
+  gap: 20px;
+  align-items: stretch; /* Force equal heights */
+  justify-content: center;
+}
+
+/* Course Cards */
+.course-card {
+  flex: 1; /* Equal width cards */
+  max-width: calc(33.333% - 14px); /* Prevent oversized cards */
+  height: 400px !important; /* Force exact height */
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(163, 148, 130, 0.2);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  border: none; /* Remove any borders */
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(163, 148, 130, 0.3);
+}
+
+/* Course Card Image */
+.course-image {
+  height: 200px !important; /* Force exact image height */
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  flex: 0 0 auto; /* Don't allow flex growth/shrink */
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-image img {
+  transform: scale(1.1);
+}
+
+/* Course Content */
+.course-content {
+  padding: 15px;
+  position: relative;
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  background-color: #fff; /* Ensure white background */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.course-content h3 {
+  color: var(--text-color);
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  max-height: 40px; /* Limit title height */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.course-content p {
+  color: var(--text-color);
+  opacity: 0.8;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  flex: 1; /* Allow description to take remaining space */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* Course Meta Information */
+.course-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.stars {
+  color: #FFD700;
+  letter-spacing: -1px;
+}
+
+.rating-count {
+  color: #777;
+}
+
+/* Button positioning */
+.course-content .btn {
+  margin-top: auto; /* Push button to bottom */
+  align-self: flex-start; /* Align button to left */
+}
+
+/* Course Carousel Controls */
+#courseCarousel .carousel-control-prev,
+#courseCarousel .carousel-control-next {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(179, 165, 146, 0.6);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+  z-index: 2;
+}
+
+#courseCarousel .carousel-control-prev {
+  left: 5px;
+}
+
+#courseCarousel .carousel-control-next {
+  right: 5px;
+}
+
+/* Fix for carousel content alignment */
+#courseCarousel .carousel-item .d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Make cards stretch to equal heights */
+}
+
+/* Make course carousel responsive */
+@media (max-width: 992px) {
+  .course-card {
+    max-width: calc(50% - 10px);
+  }
+  
+  #courseCarousel .d-flex {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .course-card {
+    height: 380px; /* Further adjust height for small screens */
+  }
+  
+  .course-image {
+    height: 180px;
+  }
+  
+  .course-content {
+    padding: 15px;
+  }
+  
+  .course-content h3 {
+    font-size: 1.2rem;
+    height: 38px;
+  }
+}
+
+@media (max-width: 576px) {
+  #courseCarousel {
+    padding: 20px 0;
+  }
+  
+  .course-card {
+    max-width: 100%;
+    height: 360px; /* Adjust height for very small screens */
+  }
+  
+  .course-image {
+    height: 160px;
+  }
+}
+
+/* Fix for course carousel dark background issues */
+#courseCarousel,
+#courseCarousel .carousel-inner,
+#courseCarousel .carousel-item {
+  background: transparent !important; /* Force transparency */
+  box-shadow: none !important; /* Remove all shadows */
+  background-image: none !important; /* Remove any background images */
+  background-color: transparent !important; /* Ensure transparent background color */
+}
+
+/* Ensure the carousel sits properly in document flow without any background effects */
+#courseCarousel {
+  position: relative;
+  z-index: 1; /* Ensure proper stacking order */
+}
+
+/* Make sure carousel controls don't cause background issues */
+#courseCarousel .carousel-control-prev,
+#courseCarousel .carousel-control-next {
+  z-index: 2;
+}
+
+/* Ensure cards have clean white backgrounds for contrast */
+.course-card {
+  background-color: #ffffff;
+  border: none;
+  overflow: hidden;
+}
+
+/* Add this to prevent any gradient overlays */
+.container, 
+.container-fluid {
+  background: transparent !important;
+}
+
+/* Ensure the section containing the carousel is transparent */
+#courseCarousel-section,
+#courseCarousel-section div {
+  background-color: transparent !important;
+  background-image: none !important;
+}

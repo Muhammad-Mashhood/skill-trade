@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Skill Trade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-image"></div>
+        <div class="login-content">
+            <div class="login-header">
+                <h2>Welcome Back</h2>
+                <p>Log in to continue your skill trading journey</p>
+            </div>
+            
+            <div id="error-message" class="error-message">
+                Invalid email or password. Please try again.
+            </div>
+            
+            <form id="login-form" class="login-form" novalidate>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                    <div class="validation-feedback" id="email-feedback"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                        <span class="toggle-password" id="togglePassword">
+                            <i class="bi bi-eye"></i>
+                        </span>
+                    </div>
+                    <div class="validation-feedback" id="password-feedback"></div>
+                </div>
+                
+                <div class="remember-forgot">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="#">Forgot password?</a>
+                    </div>
+                </div>
+                
+                <button type="submit" class="login-btn">Log In</button>
+                
+                <div class="or-divider">
+                    <span>OR</span>
+                </div>
+                
+                <div class="social-login">
+                    <div class="social-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+                        <span>Google</span>
+                    </div>
+                    <div class="social-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+                        <span>Instagram</span>
+                    </div>
+                </div>
+                
+                <div class="register-link">
+                    Don't have an account? <a href="register.html">Sign up now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('login-form');
+            const errorMessage = document.getElementById('error-message');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const emailFeedback = document.getElementById('email-feedback');
+            const passwordFeedback = document.getElementById('password-feedback');
+            const togglePassword = document.getElementById('togglePassword');
+            
+            // Hide error message initially
+            errorMessage.style.display = 'none';
+            
+            // Check if coming from a successful registration
+            if (new URLSearchParams(window.location.search).get('registered') === 'success') {
+                // Show success message
+                alert('Registration successful! Please log in with your credentials.');
+            }
+            
+            // Email validation function
+            function validateEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+            
+            // Password validation function (minimum 6 characters)
+            function validatePassword(password) {
+                return password.length >= 6;
+            }
+            
+            // Real-time email validation
+            emailInput.addEventListener('input', function() {
+                if (this.value.trim() === '') {
+                    emailFeedback.textContent = 'Email is required';
+                    emailFeedback.className = 'validation-feedback error';
+                    this.classList.add('invalid');
+                    this.classList.remove('valid');
+                } else if (!validateEmail(this.value)) {
+                    emailFeedback.textContent = 'Please enter a valid email address';
+                    emailFeedback.className = 'validation-feedback error';
+                    this.classList.add('invalid');
+                    this.classList.remove('valid');
+                } else {
+                    emailFeedback.textContent = '';
+                    emailFeedback.className = 'validation-feedback';
+                    this.classList.remove('invalid');
+                    this.classList.add('valid');
+                }
+            });
+            
+            // Real-time password validation
+            passwordInput.addEventListener('input', function() {
+                if (this.value.trim() === '') {
+                    passwordFeedback.textContent = 'Password is required';
+                    passwordFeedback.className = 'validation-feedback error';
+                    this.classList.add('invalid');
+                    this.classList.remove('valid');
+                } else if (!validatePassword(this.value)) {
+                    passwordFeedback.textContent = 'Password must be at least 6 characters';
+                    passwordFeedback.className = 'validation-feedback error';
+                    this.classList.add('invalid');
+                    this.classList.remove('valid');
+                } else {
+                    passwordFeedback.textContent = '';
+                    passwordFeedback.className = 'validation-feedback';
+                    this.classList.remove('invalid');
+                    this.classList.add('valid');
+                }
+            });
+            
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('bi-eye');
+                this.querySelector('i').classList.toggle('bi-eye-slash');
+            });
+            
+            // Add event listener for form submission
+            loginForm.addEventListener('submit', function(event) {
+                // Prevent the default form submission
+                event.preventDefault();
+                
+                // Get the input values
+                const email = emailInput.value.trim();
+                const password = passwordInput.value.trim();
+                const storedEmail = localStorage.getItem('user_email');
+                
+                // Reset feedback
+                emailFeedback.textContent = '';
+                passwordFeedback.textContent = '';
+                errorMessage.style.display = 'none';
+                
+                // Validate email
+                let isValid = true;
+                
+                if (!email) {
+                    emailFeedback.textContent = 'Email is required';
+                    emailFeedback.className = 'validation-feedback error';
+                    emailInput.classList.add('invalid');
+                    isValid = false;
+                } else if (!validateEmail(email)) {
+                    emailFeedback.textContent = 'Please enter a valid email address';
+                    emailFeedback.className = 'validation-feedback error';
+                    emailInput.classList.add('invalid');
+                    isValid = false;
+                }
+                
+                // Validate password
+                if (!password) {
+                    passwordFeedback.textContent = 'Password is required';
+                    passwordFeedback.className = 'validation-feedback error';
+                    passwordInput.classList.add('invalid');
+                    isValid = false;
+                } else if (!validatePassword(password)) {
+                    passwordFeedback.textContent = 'Password must be at least 6 characters';
+                    passwordFeedback.className = 'validation-feedback error';
+                    passwordInput.classList.add('invalid');
+                    isValid = false;
+                }
+                
+                // If form is valid, check credentials
+                if (isValid) {
+                    // Check if email matches any registered email
+                    if (storedEmail && email === storedEmail) {
+                        // Set login status
+                        localStorage.setItem('is_logged_in', 'true');
+                        
+                        // Redirect to home page after successful login
+                        window.location.href = 'home.html';
+                    } else {
+                        // Show error message
+                        errorMessage.style.display = 'block';
+                        errorMessage.textContent = 'Invalid email or password. If you don\'t have an account, please sign up.';
+                        
+                        // Shake the form to indicate error
+                        loginForm.classList.add('shake');
+                        setTimeout(() => {
+                            loginForm.classList.remove('shake');
+                        }, 500);
+                        
+                        // Hide error message after 5 seconds
+                        setTimeout(() => {
+                            errorMessage.style.display = 'none';
+                        }, 5000);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
