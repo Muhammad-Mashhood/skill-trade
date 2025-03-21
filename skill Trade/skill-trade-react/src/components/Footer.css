@@ -1,0 +1,104 @@
+/* src/components/Footer.css */
+.footer {
+  background-color: #140c01 !important; /* Solid color instead of gradient */
+  padding: 60px 0 20px !important;
+  color: #fff !important;
+  position: relative !important;
+  z-index: 2 !important;
+  border-top: none !important;
+}
+
+.footer-heading, .footer-title {
+  color: #fff !important;
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.footer-links a:hover {
+  color: #fff !important;
+}
+
+.social-link {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+}
+
+.social-link:hover {
+  background-color: #fff !important;
+  color: #8B7355 !important;
+}
+
+/* Fix footer division and subscribe button */
+.footer-bottom {
+  margin-top: 30px !important;
+  padding-top: 20px !important;
+  border-top: none !important; /* Remove the dividing line */
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-align: center !important;
+  border-top: none !important; /* Ensure no border */
+}
+
+/* Fix subscribe form */
+.subscribe-form {
+  display: flex !important;
+  position: relative !important;
+  margin-top: 15px !important;
+  max-width: 100% !important;
+}
+
+.subscribe-input {
+  width: 100% !important;
+  padding: 12px 120px 12px 15px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 25px !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  outline: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.subscribe-input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.subscribe-button {
+  position: absolute !important;
+  right: 5px !important;
+  top: 5px !important;
+  bottom: 5px !important;
+  padding: 0 20px !important;
+  border: none !important;
+  border-radius: 20px !important;
+  background-color: #5C4033 !important; /* Changed to brown */
+  color: #fff !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  z-index: 10 !important;
+}
+
+.subscribe-button:hover {
+  background-color: #8B7355 !important; /* Lighter brown on hover */
+  color: #fff !important;
+  transform: translateY(0) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 20px;
+  }
+  
+  .footer-heading {
+    margin-top: 20px;
+  }
+}
