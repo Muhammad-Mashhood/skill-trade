@@ -1,47 +1,149 @@
-/skill-trade-react/skill-trade-react/src/styles/Auth.css
-
-/* Auth.css */
-
 /* General styles for authentication pages */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #B3A592, #A39482); /* Matches footer gradient */
+  padding: 20px;
+}
+
 .auth-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 30px 25px; /* Slightly less horizontal padding to give more room for inputs */
+  max-width: 400px; /* Adjusted to make the form container smaller */
+  width: 100%;
+  background: linear-gradient(135deg, #80705b, #51412c); /* Matches footer gradient */
+  text-align: center;
 }
 
-.auth-header {
-    text-align: center;
-    margin-bottom: 20px;
+.auth-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #5C4033;
+  margin-bottom: 10px;
 }
 
-.auth-input {
-    margin-bottom: 15px;
+.auth-subtitle {
+  font-size: 1rem;
+  color: #8B7355;
+  margin-bottom: 20px;
 }
 
+.auth-error {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+/* Ensure the form is centered and properly sized */
+.auth-form {
+  max-width: 100%; /* Ensure the form spans the container */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Input field styles */
+.auth-form .form-group {
+  margin-bottom: 25px; /* More space between form elements */
+  text-align: left; /* Align labels and inputs to the left */
+}
+
+.auth-form label {
+  font-size: 1rem; /* Larger font for labels */
+  color: #ffffff; /* White text for better visibility on gradient background */
+  margin-bottom: 8px; /* More space below labels */
+  display: block;
+  font-weight: 500; /* Slightly bolder */
+}
+
+.auth-form .form-control {
+  padding: 10px 15px; /* Horizontal padding 15px, vertical 10px */
+  border: 1px solid #ddd;
+  border-radius: 8px; /* More rounded corners */
+  font-size: 1rem; /* Standard font size */
+  background: #f9f9f9; /* Light background for input fields */
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+  margin: 5px 0; /* Reduced space above and below */
+  height: auto; /* Let the height be determined by content and padding */
+  width: 1000px;
+}
+
+.auth-form .form-control:focus {
+  border-color: #8B7355;
+  box-shadow: 0 0 5px rgba(139, 115, 85, 0.3);
+  background: #fff; /* Brighter background on focus */
+}
+
+.auth-form .form-control::placeholder {
+  color: #aaa;
+  font-style: italic;
+  font-size: 1rem; /* Match font size */
+}
+
+/* Password field toggle */
+.password-field {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px; /* More distance from edge */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem; /* Slightly smaller to match new field height */
+  color: #8B7355;
+  cursor: pointer;
+}
+
+/* Button styles */
 .auth-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px 15px; /* Match input padding */
+  font-size: 1.1rem; /* Larger font */
+  font-weight: bold;
+  background: linear-gradient(45deg, #8B7355, #A39482);
+  color: #fff;
+  border: none;
+  border-radius: 8px; /* Match input corners */
+  transition: all 0.3s ease;
+  height: auto; /* Auto height instead of fixed */
 }
 
 .auth-button:hover {
-    background-color: #0056b3;
+  background: linear-gradient(45deg, #A39482, #8B7355);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Footer link styles */
 .auth-footer {
-    text-align: center;
-    margin-top: 10px;
+  font-size: 0.9rem;
+  color: #5C4033;
+  margin-top: 15px;
+}
+
+.auth-footer a {
+  color: #8B7355;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Consistent footer background */
+.footer {
+  background: linear-gradient(135deg, #B3A592, #A39482); /* Matches auth page */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
 .error-message {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 10px;
+  color: red;
+  font-size: 0.9em;
+  margin-top: 10px;
 }

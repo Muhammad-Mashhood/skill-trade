@@ -87,8 +87,8 @@ const HomePage = () => {
                         <div className="d-flex justify-content-between align-items-center mb-4">
                             <h3 className="slider-title">Featured Courses</h3>
                             <Link to="/courses" className="view-all-link">View All</Link>
-                        </div>
-                        
+                </div>
+                
                         <div id="featuredCoursesSlider" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-inner">
                                 <div className="carousel-item active">
@@ -157,7 +157,7 @@ const HomePage = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-md-4">
+                    <div className="col-md-4">
                                             <div className="skill-card">
                                                 <div className="skill-card-image">
                                                     <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=400" alt="Painting" />
@@ -255,10 +255,10 @@ const HomePage = () => {
                                                     <h3>Pottery</h3>
                                                     <p>I will teach pottery in exchange for photography.</p>
                                                     <button className="btn btn-primary">Learn More</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-4">
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
                                             <div className="skill-card">
                                                 <div className="skill-card-image">
                                                     <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=400" alt="Fitness" />
@@ -356,10 +356,10 @@ const HomePage = () => {
                                                     <h3>3D Printing</h3>
                                                     <p>I will teach 3D printing in exchange for CAD design.</p>
                                                     <button className="btn btn-primary">Learn More</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-4">
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
                                             <div className="skill-card">
                                                 <div className="skill-card-image">
                                                     <img src="https://images.unsplash.com/photo-1593697821028-7cc59cfd7399?auto=format&fit=crop&q=80&w=400" alt="Gardening" />
