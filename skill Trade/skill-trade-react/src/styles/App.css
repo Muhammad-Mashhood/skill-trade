@@ -1,0 +1,14 @@
+body {
+  padding-top: 70px; /* Adjust based on your navbar's actual height */
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}

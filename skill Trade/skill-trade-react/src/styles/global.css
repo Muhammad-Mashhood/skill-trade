@@ -5,6 +5,14 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
     color: #343a40;
+    padding-top: 76px; /* Make sure this matches your navbar height */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6 {

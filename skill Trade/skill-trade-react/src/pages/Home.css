@@ -105,13 +105,14 @@ body {
   box-shadow: 0 4px 12px rgba(163, 148, 130, 0.3);
 }
 
-/* Completely rebuilt hero section */
+/* Hero section - ensure doesn't push content down */
 .hero-section {
   height: 100vh;
-  margin-top: -76px; /* Offset for navbar */
+  margin-top: -76px; /* This offsets the body padding-top */
   position: relative;
 }
 
+/* Completely rebuilt hero section */
 .hero-slide {
   height: 100vh;
   background-size: cover;

@@ -4,146 +4,301 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #B3A592, #A39482); /* Matches footer gradient */
-  padding: 20px;
+  background: #f5f5f5;
+  padding: 20px 0;
+  margin: 0;
 }
 
 .auth-container {
+  display: flex;
+  width: 900px;
+  height: 500px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  padding: 30px 25px; /* Slightly less horizontal padding to give more room for inputs */
-  max-width: 400px; /* Adjusted to make the form container smaller */
-  width: 100%;
-  background: linear-gradient(135deg, #80705b, #51412c); /* Matches footer gradient */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  margin-top: 30px;
+}
+
+/* Split panels styling */
+.auth-panel {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.auth-panel.left {
+  background: #fff;
+}
+
+.auth-panel.right {
+  background: #6c6c6c;
+  color: white;
+  align-items: center;
   text-align: center;
 }
 
+/* When showing login form */
+.auth-container.show-login .auth-panel.left {
+  flex: 2;
+}
+
+.auth-container.show-login .auth-panel.right {
+  flex: 1;
+}
+
+/* When showing register form */
+.auth-container.show-register .auth-panel.left {
+  flex: 1;
+  background: #6c6c6c;
+  color: white;
+  align-items: center;
+  text-align: center;
+}
+
+.auth-container.show-register .auth-panel.right {
+  background: #fff;
+  color: #333;
+  flex: 2;
+}
+
+/* Form container */
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 0;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.5s ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+}
+
+.form-container.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+  position: relative;
+  visibility: visible;
+}
+
+/* Typography */
 .auth-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #5C4033;
-  margin-bottom: 10px;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: inherit;
+  margin-bottom: 15px;
 }
 
 .auth-subtitle {
   font-size: 1rem;
-  color: #8B7355;
-  margin-bottom: 20px;
+  color: inherit;
+  opacity: 0.8;
+  margin-bottom: 30px;
 }
 
-.auth-error {
-  color: #d9534f;
-  font-size: 0.9rem;
+.panel-title {
+  font-size: 1.8rem;
+  font-weight: 500;
   margin-bottom: 15px;
+  color: inherit;
 }
 
-/* Ensure the form is centered and properly sized */
-.auth-form {
-  max-width: 100%; /* Ensure the form spans the container */
-  margin: 0 auto; /* Center the form horizontally */
+.panel-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: inherit;
+  opacity: 0.9;
 }
 
-/* Input field styles */
-.auth-form .form-group {
-  margin-bottom: 25px; /* More space between form elements */
-  text-align: left; /* Align labels and inputs to the left */
-}
-
-.auth-form label {
-  font-size: 1rem; /* Larger font for labels */
-  color: #ffffff; /* White text for better visibility on gradient background */
-  margin-bottom: 8px; /* More space below labels */
-  display: block;
-  font-weight: 500; /* Slightly bolder */
-}
-
-.auth-form .form-control {
-  padding: 10px 15px; /* Horizontal padding 15px, vertical 10px */
-  border: 1px solid #ddd;
-  border-radius: 8px; /* More rounded corners */
-  font-size: 1rem; /* Standard font size */
-  background: #f9f9f9; /* Light background for input fields */
-  transition: all 0.3s ease;
-  box-sizing: border-box; /* Ensure padding and border are included in width */
-  margin: 5px 0; /* Reduced space above and below */
-  height: auto; /* Let the height be determined by content and padding */
-  width: 1000px;
-}
-
-.auth-form .form-control:focus {
-  border-color: #8B7355;
-  box-shadow: 0 0 5px rgba(139, 115, 85, 0.3);
-  background: #fff; /* Brighter background on focus */
-}
-
-.auth-form .form-control::placeholder {
-  color: #aaa;
-  font-style: italic;
-  font-size: 1rem; /* Match font size */
-}
-
-/* Password field toggle */
-.password-field {
+/* Field styling */
+.field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  padding: 12px 15px;
+  background-color: #f7f7f7;
   position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid #eaeaea;
 }
 
+.auth-panel.right .field {
+  background-color: #f7f7f7;
+  border: 1px solid #eaeaea;
+}
+
+.field:hover, .field:focus-within {
+  background-color: #ffffff;
+  border-color: #B3A592;
+  box-shadow: 0 0 0 2px rgba(179, 165, 146, 0.2);
+}
+
+.input-icon {
+  height: 20px;
+  width: 20px;
+  min-width: 20px;
+  fill: #B3A592;
+  margin-right: 10px;
+}
+
+.input-field {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  color: #333;
+  font-size: 16px;
+  padding: 0;
+}
+
+.input-field::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+/* Password toggle */
 .toggle-password {
   position: absolute;
-  right: 15px; /* More distance from edge */
+  right: 15px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.2rem; /* Slightly smaller to match new field height */
-  color: #8B7355;
+  color: #B3A592;
+  font-size: 14px;
   cursor: pointer;
 }
 
 /* Button styles */
-.auth-button {
-  width: 100%;
-  padding: 10px 15px; /* Match input padding */
-  font-size: 1.1rem; /* Larger font */
-  font-weight: bold;
-  background: linear-gradient(45deg, #8B7355, #A39482);
-  color: #fff;
+.btn {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.button1, .button2 {
+  background: linear-gradient(45deg, #A39482, #B3A592);
+  color: white;
   border: none;
-  border-radius: 8px; /* Match input corners */
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
   transition: all 0.3s ease;
-  height: auto; /* Auto height instead of fixed */
-}
-
-.auth-button:hover {
-  background: linear-gradient(45deg, #A39482, #8B7355);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Footer link styles */
-.auth-footer {
-  font-size: 0.9rem;
-  color: #5C4033;
-  margin-top: 15px;
-}
-
-.auth-footer a {
-  color: #8B7355;
-  text-decoration: none;
-}
-
-.auth-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Consistent footer background */
-.footer {
-  background: linear-gradient(135deg, #B3A592, #A39482); /* Matches auth page */
-  color: #fff;
-  padding: 20px;
   text-align: center;
 }
 
-.error-message {
-  color: red;
-  font-size: 0.9em;
+.button1 {
+  width: 100%;
+}
+
+.button2 {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.auth-container.show-register .auth-panel.right .button1 {
+  background: linear-gradient(45deg, #A39482, #B3A592);
+}
+
+.auth-container.show-register .auth-panel.left .button2 {
+  border: 2px solid white;
+  color: white;
+}
+
+.button1:hover, .button2:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.button2:hover {
+  background: white;
+  color: #6c6c6c;
+}
+
+.auth-container.show-register .auth-panel.right .button1:hover {
+  background: linear-gradient(45deg, #B3A592, #A39482);
+}
+
+/* Forgot password link */
+.forgot-password {
+  text-align: right;
   margin-top: 10px;
+}
+
+.forgot-password a {
+  color: #B3A592;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+  color: #A39482;
+  text-decoration: underline;
+}
+
+/* Error & success messages */
+.error-message, .success-message {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.error-message {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #d32f2f;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.success-message {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #388e3c;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 992px) {
+  .auth-container {
+    width: 95%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .auth-panel {
+    padding: 25px;
+  }
+
+  .auth-container.show-login .auth-panel.left,
+  .auth-container.show-login .auth-panel.right,
+  .auth-container.show-register .auth-panel.left,
+  .auth-container.show-register .auth-panel.right {
+    flex: 1;
+  }
+
+  .form-container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .auth-panel {
+    padding: 20px;
+  }
+
+  .auth-title {
+    font-size: 1.8rem;
+  }
+
+  .panel-title {
+    font-size: 1.5rem;
+  }
 }
